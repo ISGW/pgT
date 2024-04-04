@@ -24,6 +24,9 @@
             font-family: "Pragati Narrow", sans-serif;
             background-color: #18342f; /* Change this to your desired background color */
             text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
             max-width: 600px;
@@ -85,41 +88,49 @@
 
         /* Carousel styles */
         .carousel-container {
+            position: relative;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+        
+        .carousel {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-        .carousel {
-            display: flex;
             transition: transform 0.5s ease;
         }
+        
         .carousel img {
             max-width: 100%;
             height: auto;
         }
+        
         .carousel-btn {
             position: absolute;
-            top: 70%;
+            top: 50%;
             transform: translateY(-50%);
             font-size: 34px;
-            color: rgba(172, 190, 190, 0.418);
+            color: #18342f80;
+            background-color: rgba(255, 255, 255, 0.328);
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
+            padding: 10px;
             z-index: 1;
-            width: 200px; /* Increase width for larger clickable area */
-            height: 200px; /* Increase height for larger clickable area */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            transition: background-color 0.3s ease;
         }
+        
         .prev-btn {
-            left: 0;
+            left: 20px;
         }
+        
         .next-btn {
-            right: 0;
+            right: 20px;
         }
-    </style>
+        
+        .carousel-btn:hover {
+            background-color: rgba(255, 255, 255, 0.66);
+        }    </style>
 </head>
 <body>
     <div class="container">
