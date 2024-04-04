@@ -9,6 +9,15 @@
     <title>Your Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Hide scrollbar for all browsers */
+        body {
+        scrollbar-color: transparent; /* Firefox */
+        }
+
+        body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -18,7 +27,7 @@
         }
         .container {
             max-width: 600px;
-            margin: 60px auto; /* Adjust the margin to center the container vertically */
+            margin:15px auto; /* Adjust the margin to center the container vertically */
             background-color: rgba(255, 255, 255, 0);
             padding: 20px;
             border-radius: 0px;
@@ -37,7 +46,7 @@
         }
 
         .logo {
-            max-width: 95px;
+            max-width: 80px;
             margin: 0 auto; /* Center the logo horizontally */
             /* Add other styles as needed */
         }
@@ -45,14 +54,13 @@
         .social-icons a {
             display: inline-block;
             margin: 0 10px;
-            margin-top: 50px;
+            margin-top: 150px;
         }
 
         .portfolio-images img {
             width: 350px; /* Set the width of portfolio images */
-            margin: 0 20px; /* Add space between images */
+            margin: 0 0px; /* Add space between images */
             border-radius: 3px; /* Optional: Add border radius for rounded corners */
-            cursor: pointer; /* Change cursor to pointer on hover */
             transition: transform 0.3s ease; /* Smooth transition on hover */
         }
         .no-right-click,
@@ -68,11 +76,11 @@
         }
 
         footer {
-            margin-top: 50px;
+            margin-top: auto; /* Push footer to the bottom */
             background-color: #b9838300;
-            color: #ffffff38;
-            font-size: 13px;
-            padding: 20px;
+            color: #ffffff30;
+            font-size: 12px;
+            padding: 1px;
         }
 
         /* Carousel styles */
@@ -80,7 +88,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 30px;
+            margin-top: 10px;
             overflow: hidden;
         }
         .carousel {
@@ -93,7 +101,7 @@
         }
         .carousel-btn {
             position: absolute;
-            top: 75%;
+            top: 70%;
             transform: translateY(-50%);
             font-size: 34px;
             color: rgba(172, 190, 190, 0.418);
@@ -106,10 +114,10 @@
             align-items: center;
         }
         .prev-btn {
-            left: 0px;
+            left: 0;
         }
         .next-btn {
-            right: 0px;
+            right: 0;
         }
     </style>
 </head>
