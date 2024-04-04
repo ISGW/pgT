@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Your Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Pragati Narrow", sans-serif;
+            background-color: #18342f; /* Change this to your desired background color */
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 60px auto; /* Adjust the margin to center the container vertically */
+            background-color: rgba(255, 255, 255, 0);
+            padding: 20px;
+            border-radius: 0px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+            position: relative; /* Required for absolute positioning of logo overlay */
+        }
+        .logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            cursor: default; /* Change cursor to indicate disabled interaction */
+            z-index: -1; /* Move the overlay behind other content */
+        }
+
+        .logo {
+            max-width: 95px;
+            margin: 0 auto; /* Center the logo horizontally */
+            /* Add other styles as needed */
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            margin-top: 50px;
+        }
+
+        .portfolio-images img {
+            width: 350px; /* Set the width of portfolio images */
+            margin: 0 20px; /* Add space between images */
+            border-radius: 3px; /* Optional: Add border radius for rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+        }
+        .no-right-click,
+        .no-right-click img {
+            pointer-events: none; /* Disable pointer events on the element and its children */
+        }
+        .no-drag {
+        user-select: none; /* Disable text selection */
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        }
+
+        footer {
+            margin-top: 50px;
+            background-color: #b9838300;
+            color: #ffffff38;
+            font-size: 13px;
+            padding: 20px;
+        }
+
+        /* Carousel styles */
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 75%;
+            transform: translateY(-50%);
+            font-size: 34px;
+            color: rgba(172, 190, 190, 0.418);
+            cursor: pointer;
+            z-index: 1;
+            width: 200px; /* Increase width for larger clickable area */
+            height: 200px; /* Increase height for larger clickable area */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .prev-btn {
+            left: 0px;
+        }
+        .next-btn {
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Overlay div to disable interactions -->
+        <div class="logo-overlay"></div>
+        <!-- Logo image -->
+        <img class="logo" src="images/2logo.svg" alt="Logo">
+    </div>
+    
+    <!-- Image Carousel -->
+    <div class="carousel-container">
+        <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
+        <div class="carousel">
+            <img src="images/image1.jpg" alt="Image 1"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image2.jpg" alt="Image 2"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image3.jpg" alt="Image 3"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image4.jpg" alt="Image 4"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <!-- Add more carousel images as needed -->
+        </div>
+        <div class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</div>
+    </div>
+
+    <!-- Social media icons -->
+    <div class="social-icons">
+        <a href="mailto:youremail@example.com"><img src="images/email.svg" alt="Email" style="width: 30px;"></a>
+        <!--<a href="https://www.instagram.com" target="_blank"><img src="images/instagram.svg" alt="Instagram" style="width: 30px;"></a>-->
+        <!--<a href="https://twitter.com" target="_blank"><img src="images/etsy.svg" alt="Twitter" style="width: 30px;"></a>-->
+        <!-- Add more social media icons and links as needed -->
+    </div>
+
+    <!-- JavaScript to disable right-clicking and dragging -->
+    <script>
+        // Get the logo overlay
+        const logoOverlay = document.querySelector('.logo-overlay');
+        const logo = document.querySelector('.logo');
+
+        // Prevent right-click on logo and logo overlay
+        logo.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        logoOverlay.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable dragging on logo image
+        logo.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        // Image Carousel JavaScript
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.carousel img');
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            slides[slideIndex].style.display = 'block';
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlides();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            showSlides();
+        }
+
+        showSlides(); // Show initial slide
+    </script>
+    
+    <footer>
+        <p>&copy; 2024 All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
