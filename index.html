@@ -8,12 +8,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Your Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
     <style>
         /* Hide scrollbar for all browsers */
         body {
         scrollbar-color: transparent; /* Firefox */
         }
-
         body::-webkit-scrollbar {
         display: none; /* Chrome, Safari, and Opera */
         }
@@ -32,7 +32,7 @@
             max-width: 600px;
             margin:15px auto; /* Adjust the margin to center the container vertically */
             background-color: rgba(255, 255, 255, 0);
-            padding: 20px;
+            padding: 10px;
             border-radius: 0px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
             position: relative; /* Required for absolute positioning of logo overlay */
@@ -49,7 +49,7 @@
         }
 
         .logo {
-            max-width: 80px;
+            max-width: 60px;
             margin: 0 auto; /* Center the logo horizontally */
             /* Add other styles as needed */
         }
@@ -60,15 +60,15 @@
             margin-top: 150px;
         }
         .description {
-            margin-top: 20px; /* Adjust the margin-top as needed */
-            color: #d2d1d1b3; /* Text color */
+            margin-top: 0px; /* Adjust the margin-top as needed */
+            color: #ddddddf7; /* Text color */
+            font-family: "Bungee Hairline", sans-serif;
             font-size: 14px; /* Font size */
-            font-style:italic;
         }
         .portfolio-images img {
             width: 350px; /* Set the width of portfolio images */
             margin: 0 0px; /* Add space between images */
-            border-radius: 3px; /* Optional: Add border radius for rounded corners */
+            border-radius: 0px; /* Optional: Add border radius for rounded corners */
             transition: transform 0.3s ease; /* Smooth transition on hover */
         }
         .no-right-click,
@@ -108,6 +108,7 @@
         .carousel img {
             max-width: 100%;
             height: auto;
+            border-radius: 3px;
         }
         
         .carousel-btn {
@@ -120,9 +121,9 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            padding: 10px;
+            padding: 45px;
             z-index: 1;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.7s ease;
         }
         
         .prev-btn {
@@ -134,8 +135,15 @@
         }
         
         .carousel-btn:hover {
-            background-color: rgba(255, 255, 255, 0.217);
-        }    </style>
+            background-color: rgba(200, 199, 199, 0.075);
+        }    
+        .progress-indicator {
+            margin-top: 10px;
+            color: #ddddddf7; /* Text color */
+            font-family: "Bungee Hairline", sans-serif;
+            font-size: 16px;        }
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -147,7 +155,7 @@
 
     <!-- Description section -->
     <div class="description">
-        <p>work in progress</p>
+        <p></p>
     </div>
 
     <!-- Image Carousel -->
@@ -162,6 +170,9 @@
         </div>
         <div class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</div>
     </div>
+
+    <!-- Progress indicator -->
+    <div class="progress-indicator" id="progressIndicator"></div>
 
     <!-- Social media icons -->
     <div class="social-icons">
@@ -217,7 +228,30 @@
             showSlides();
         }
 
-        showSlides(); // Show initial slide
+        // Update progress indicator
+        function updateProgressIndicator() {
+            const slides = document.querySelectorAll('.carousel img');
+            const progressIndicator = document.getElementById('progressIndicator');
+            const currentSlide = slideIndex + 1; // Get current slide number
+            progressIndicator.textContent = `${currentSlide}/${slides.length}`; // Update progress text
+        }
+
+        // Override nextSlide and prevSlide functions to include progress update
+        const originalNextSlide = nextSlide;
+        nextSlide = function() {
+            originalNextSlide();
+            updateProgressIndicator();
+        };
+
+        const originalPrevSlide = prevSlide;
+        prevSlide = function() {
+            originalPrevSlide();
+            updateProgressIndicator();
+        };
+
+        // Show initial slide and update progress indicator
+        showSlides();
+        updateProgressIndicator();
     </script>
     
     <footer>
