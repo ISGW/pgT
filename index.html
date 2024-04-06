@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Your Website</title>
+    <title>some art</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
     <style>
@@ -49,7 +50,7 @@
         }
 
         .logo {
-            max-width: 60px;
+            max-width: 70px;
             margin: 0 auto; /* Center the logo horizontally */
             /* Add other styles as needed */
         }
@@ -57,20 +58,30 @@
         .social-icons a {
             display: inline-block;
             margin: 0 10px;
-            margin-top: 150px;
+            margin-top: 450px;
+            margin-bottom: 50px;
         }
+            .social-icons a:hover {
+            color: blue; /* Hover color */
+        }
+
+        /* Add styles to target SVG elements within the anchor tags */
+        .social-icons a svg {
+            fill: #cfd1d2; /* Inherit color from parent (anchor tag) */
+            transition: fill 0.5s ease;
+        }
+
+        .social-icons a:hover svg {
+            fill: rgb(255, 255, 255); /* Hover color for SVG */
+        }
+
         .description {
             margin-top: 0px; /* Adjust the margin-top as needed */
-            color: #ddddddf7; /* Text color */
-            font-family: "Bungee Hairline", sans-serif;
+            color: #ffffff; /* Text color */
+            font-family: "Pragati Narrow", sans-serif;
             font-size: 14px; /* Font size */
         }
-        .portfolio-images img {
-            width: 350px; /* Set the width of portfolio images */
-            margin: 0 0px; /* Add space between images */
-            border-radius: 0px; /* Optional: Add border radius for rounded corners */
-            transition: transform 0.3s ease; /* Smooth transition on hover */
-        }
+
         .no-right-click,
         .no-right-click img {
             pointer-events: none; /* Disable pointer events on the element and its children */
@@ -85,72 +96,112 @@
 
         footer {
             margin-top: auto; /* Push footer to the bottom */
-            background-color: #b9838300;
-            color: #ffffff26;
-            font-size: 12px;
+            margin-bottom: 0px;
+            background-color: #ffffff00;
+            color: #cfd1d249;
+            font-family: "Pragati Narrow", sans-serif;
+            font-size: 11px;
             padding: 1px;
         }
 
-        /* Carousel styles */
-        .carousel-container {
-            position: relative;
-            margin-top: 30px;
-            overflow: hidden;
-        }
-        
-        .carousel {
+        /* Navigation menu styles */
+        nav {
             display: flex;
             justify-content: center;
-            align-items: center;
-            transition: transform 0.5s ease;
+            margin-top: 20px;
         }
-        
-        .carousel img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 3px;
-        }
-        
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 34px;
-            color: #adacac4f;
-            background-color: rgba(255, 255, 255, 0);
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            padding: 45px;
-            z-index: 1;
-            transition: background-color 0.7s ease;
-        }
-        
-        .prev-btn {
-            left: 20px;
-        }
-        
-        .next-btn {
-            right: 20px;
-        }
-        
-        .carousel-btn:hover {
-            background-color: rgba(200, 199, 199, 0);
-        }    
-        .progress-indicator {
-            margin-top: 10px;
-            color: #ddddddf7; /* Text color */
-            font-family: "Bungee Hairline", sans-serif;
-            font-size: 16px;        }
 
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            color: #cfd1d2;
+            text-decoration: none;
+            font-family: "Pragati Narrow", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            transition: color 0.5s ease;
+        }
+
+        nav a:hover {
+            color: #18342f;
+        }
+
+        /* Dropdown styles */
+        .dropdown-content {
+            display: none;
+            position:absolute;
+            right:0;
+            left:0;
+            background-color: #6c857f;
+            min-width: 100px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #18342f;
+            padding: 12px 16px;
+            text-decoration: none;
+            display:block;
+
+            transition: background-color 0.5s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #cfd1d2;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display:block;
+        }
+
+        /* SVG icon styles */
+        .icon {
+            fill: #cfd1d2;
+            transition: fill 0.5s ease;
+        }
+
+        .icon:hover {
+            fill: #ffffff;
+        }
+
+        
     </style>
 </head>
 <body>
+    <!-- Navigation menu -->
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="javascript:void(0)">
+                    <!-- SVG icon -->
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                        <path d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-content">
+                    <a href="works.html">Works</a>
+                    <a href="about.html">About</a>
+                    <a href="about.html">About</a>
+                </div>
+            </li>
+            
+        </ul>
+    </nav>
+
     <div class="container">
         <!-- Overlay div to disable interactions -->
         <div class="logo-overlay"></div>
         <!-- Logo image -->
-        <img class="logo" src="images/2logo.svg" alt="Logo">
+        <img class="logo" src="images/3logo.svg" alt="Logo">
     </div>
 
     <!-- Description section -->
@@ -158,26 +209,10 @@
         <p></p>
     </div>
 
-    <!-- Image Carousel -->
-    <div class="carousel-container">
-        <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
-        <div class="carousel">
-            <img src="images/image1.jpg" alt="Image 1"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
-            <img src="images/image2.jpg" alt="Image 2"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
-            <img src="images/image3.jpg" alt="Image 3"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
-            <img src="images/image4.jpg" alt="Image 4"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
-            <!-- Add more carousel images as needed -->
-        </div>
-        <div class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</div>
-    </div>
-
-    <!-- Progress indicator -->
-    <div class="progress-indicator" id="progressIndicator"></div>
-
     <!-- Social media icons -->
     <div class="social-icons">
-        <a href="mailto:youremail@example.com"><img src="images/email.svg" alt="Email" style="width: 30px;"></a>
-        <a href="https://www.instagram.com" target="_blank"><img src="images/instagram.svg" alt="Instagram" style="width: 30px;"></a>
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm0 2l-6.5 4.47a1 1 0 0 1-1 0L5 6z"/></svg></a>
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 0 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></a>
         <!--<a href="https://twitter.com" target="_blank"><img src="images/etsy.svg" alt="Twitter" style="width: 30px;"></a>-->
         <!-- Add more social media icons and links as needed -->
     </div>
@@ -202,56 +237,6 @@
             e.preventDefault();
         });
 
-        // Image Carousel JavaScript
-        let slideIndex = 0;
-
-        function showSlides() {
-            const slides = document.querySelectorAll('.carousel img');
-            if (slideIndex >= slides.length) {
-                slideIndex = 0;
-            } else if (slideIndex < 0) {
-                slideIndex = slides.length - 1;
-            }
-            slides.forEach(slide => {
-                slide.style.display = 'none';
-            });
-            slides[slideIndex].style.display = 'block';
-        }
-
-        function nextSlide() {
-            slideIndex++;
-            showSlides();
-        }
-
-        function prevSlide() {
-            slideIndex--;
-            showSlides();
-        }
-
-        // Update progress indicator
-        function updateProgressIndicator() {
-            const slides = document.querySelectorAll('.carousel img');
-            const progressIndicator = document.getElementById('progressIndicator');
-            const currentSlide = slideIndex + 1; // Get current slide number
-            progressIndicator.textContent = `${currentSlide}/${slides.length}`; // Update progress text
-        }
-
-        // Override nextSlide and prevSlide functions to include progress update
-        const originalNextSlide = nextSlide;
-        nextSlide = function() {
-            originalNextSlide();
-            updateProgressIndicator();
-        };
-
-        const originalPrevSlide = prevSlide;
-        prevSlide = function() {
-            originalPrevSlide();
-            updateProgressIndicator();
-        };
-
-        // Show initial slide and update progress indicator
-        showSlides();
-        updateProgressIndicator();
     </script>
     
     <footer>
