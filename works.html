@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Works</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
+    <style>
+        /* Hide scrollbar for all browsers */
+        body {
+        scrollbar-color: transparent; /* Firefox */
+        }
+        body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Pragati Narrow", sans-serif;
+            background-color: #cfd1d2; /* Change this to your desired background color */
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin:15px auto; /* Adjust the margin to center the container vertically */
+            background-color: rgba(255, 255, 255, 0);
+            padding: 10px;
+            border-radius: 0px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+            position: relative; /* Required for absolute positioning of logo overlay */
+        }
+        .logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            cursor: default; /* Change cursor to indicate disabled interaction */
+            z-index: -1; /* Move the overlay behind other content */
+        }
+
+        .logo {
+            max-width: 34px;
+            margin: 0 auto; /* Center the logo horizontally */
+            /* Add other styles as needed */
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            margin-top: 150px;
+        }
+        .description {
+            margin-top: 0px; /* Adjust the margin-top as needed */
+            color: #8a8a8a; /* Text color */
+            font-family: "Pragati Narrow", sans-serif;
+            font-size: 14px; /* Font size */
+        }
+
+        .portfolio-images img {
+            width: 350px; /* Set the width of portfolio images */
+            margin: 0 0px; /* Add space between images */
+            border-radius: 0px; /* Optional: Add border radius for rounded corners */
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+        }
+        .no-right-click,
+        .no-right-click img {
+            pointer-events: none; /* Disable pointer events on the element and its children */
+        }
+        .no-drag {
+        user-select: none; /* Disable text selection */
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        }
+
+        footer {
+            margin-top: auto; /* Push footer to the bottom */
+            margin-bottom: 0px;
+            background-color: #94474700;
+            color: #43434349;
+            font-family: "Pragati Narrow", sans-serif;
+            font-size: 11px;
+            padding: 1px;
+        }
+
+        /* Carousel styles */
+        .carousel-container {
+            position: relative;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+        
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 34px;
+            color: #848484b7;
+            background-color: rgba(255, 255, 255, 0);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding: 45px;
+            z-index: 1;
+            transition: background-color 0.5s ease;
+            user-select: none; /* Disable text(arrow) selection */
+        }
+        
+        .prev-btn {
+            left: 20px;
+        }
+        
+        .next-btn {
+            right: 20px;
+        }
+        
+        .carousel-btn:hover {
+            background-color: rgba(200, 199, 199, 0.032);
+        }    
+        .progress-indicator {
+            margin-top: 10px;
+            margin-bottom: 90px;
+            color: #6e6e6ef7; /* Text color */
+            font-family: "Pragati Narrow", sans-serif;
+            font-size: 16px;        
+        }
+
+        /* Navigation menu styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin: 0 20px;
+            color: #737373;
+            text-decoration: none;
+            font-family: "Pragati Narrow", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            transition: color 0.5s ease;
+        }
+
+        nav a:hover {
+            color: #18342f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation menu -->
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="works.html">WORKS</a>
+        <a href="about.html">ABOUT</a>
+    </nav>
+
+    <div class="container">
+        <!-- Overlay div to disable interactions -->
+        <div class="logo-overlay"></div>
+        <!-- Logo image -->
+        <img class="logo" src="images/works-logo.svg" alt="Logo">
+    </div>
+
+    <!-- Description section -->
+    <div class="description">
+        <p>Description Text</p>
+    </div>
+
+    <!-- Image Carousel -->
+    <div class="carousel-container">
+        <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
+        <div class="carousel">
+            <img src="images/image1.jpg" alt="Image 1"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image2.jpg" alt="Image 2"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image3.jpg" alt="Image 3"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image4.jpg" alt="Image 4"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <!-- Add more carousel images as needed -->
+        </div>
+        <div class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</div>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="progress-indicator" id="progressIndicator"></div>
+
+
+    <!-- JavaScript to disable right-clicking and dragging -->
+    <script>
+        // Get the logo overlay
+        const logoOverlay = document.querySelector('.logo-overlay');
+        const logo = document.querySelector('.logo');
+
+        // Prevent right-click on logo and logo overlay
+        logo.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        logoOverlay.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable dragging on logo image
+        logo.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        // Image Carousel JavaScript
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.carousel img');
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            slides[slideIndex].style.display = 'block';
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlides();
+            updateProgressIndicator();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            showSlides();
+            updateProgressIndicator();
+        }
+
+        // Update progress indicator
+        function updateProgressIndicator() {
+            const slides = document.querySelectorAll('.carousel img');
+            const progressIndicator = document.getElementById('progressIndicator');
+            const currentSlide = slideIndex + 1; // Get current slide number
+            progressIndicator.textContent = `${currentSlide}/${slides.length}`; // Update progress text
+        }
+
+        // Show initial slide and update progress indicator
+        showSlides();
+        updateProgressIndicator();
+    </script>
+    
+    <footer>
+        <p>&copy; 2024 All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
