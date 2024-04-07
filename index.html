@@ -241,16 +241,29 @@
             e.preventDefault();
         });
 
+        
     // mobile click outside menu 
-        document.addEventListener('click', function(e) {
+    document.addEventListener('DOMContentLoaded', function() {
     const dropdown = document.querySelector('.dropdown-content');
     const menuIcon = document.querySelector('.dropdown');
 
-    // Check if the click target is not within the dropdown or menu icon
-    if (!dropdown.contains(e.target) && e.target !== menuIcon) {
-        dropdown.style.display = 'none'; // Close the dropdown
-    }
+    // Open or close the dropdown when clicking on the menu icon
+    menuIcon.addEventListener('click', function() {
+        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'block'; // Open the dropdown
+        } else {
+            dropdown.style.display = 'none'; // Close the dropdown
+        }
     });
+
+    // Close the dropdown when clicking anywhere outside of it
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target) && e.target !== menuIcon) {
+            dropdown.style.display = 'none'; // Close the dropdown
+        }
+    });
+});
+
 
     </script>
     
