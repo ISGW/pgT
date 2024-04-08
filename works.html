@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Works</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
     <style>
-
         /* Hide scrollbar for all browsers */
         body {
         scrollbar-color: transparent; /* Firefox */
@@ -101,7 +98,9 @@
         .carousel-container {
             position: relative;
             margin-top: 30px;
-            overflow: hidden;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            white-space: nowrap; /* Prevent images from wrapping */
+            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
         }
         
         .carousel {
@@ -110,44 +109,44 @@
             align-items: center;
             transition: transform 0.5s ease;
         }
-        
+
         .carousel img {
             max-width: 100%;
             height: auto;
             border-radius: 3px;
+            margin-right: 10px; /* Add space between images */
         }
         
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 40px;
-            color: #84848425;
+            font-size: 30px;
+            color: #7f7f7f24;
             background-color: transparent !important;
-            border: none !important;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
             padding: 45px;
-            z-index: 2;
+            z-index: 1;
             user-select: none; /* Disable text(arrow) selection */
         }
         
         .prev-btn {
-            left: 20px;
+            left: 10px;
         }
         
         .next-btn {
-            right: 20px;
+            right: 10px;
         }
         
-
-
         .carousel-btn:hover {
-            background-color: rgba(200, 199, 199, 0.516);
+            background-color: rgb(255, 255, 255);
         }    
         .progress-indicator {
             margin-top: 10px;
             margin-bottom: 90px;
-            color: #6e6e6ef7; /* Text color */
+            color: #6e6e6eba; /* Text color */
             font-family: "Pragati Narrow", sans-serif;
             font-size: 16px;        
         }
@@ -178,7 +177,6 @@
     <!-- Navigation menu -->
     <nav>
         <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
     </nav>
 
     <div class="container">
@@ -190,19 +188,24 @@
 
     <!-- Description section -->
     <div class="description">
-        <p>Description Text</p>
+        <p></p>
     </div>
 
     <!-- Image Carousel -->
     <div class="carousel-container">
-        <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
         <div class="carousel">
-            <img src="images/image1.jpg" alt="Image 1"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
-            <img src="images/image2.jpg" alt="Image 2"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
-            <img src="images/image3.jpg" alt="Image 3"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
-            <img src="images/image4.jpg" alt="Image 4"onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <!-- Carousel Images -->
+            <img src="images/image1.jpg" alt="Image 1" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image2.jpg" alt="Image 2" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image3.jpg" alt="Image 3" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
+            <img src="images/image4.jpg" alt="Image 4" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
             <!-- Add more carousel images as needed -->
         </div>
+
+        <!-- Previous Button -->
+        <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
+
+        <!-- Next Button -->
         <div class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</div>
     </div>
 
@@ -212,8 +215,6 @@
 
     <!-- JavaScript to disable right-clicking and dragging -->
     <script>
-
-
         // Image Carousel JavaScript
         let slideIndex = 0;
 
