@@ -86,13 +86,17 @@
         }
 
         footer {
-            margin-top: auto; /* Push footer to the bottom */
-            margin-bottom: 0px;
+            position: auto;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background-color: #bb5b5b00;
             color: #43434349;
             font-family: "Pragati Narrow", sans-serif;
             font-size: 11px;
-            padding: 1px;
+            padding: 0px;
+            z-index: 100; /* Ensure the footer appears above other content */
+
         }
 
         /* Carousel styles */
@@ -123,8 +127,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 30px;
-            color: #7f7f7f24;
+            font-size: 25px;
+            color: #7f7f7f2c;
             background-color: transparent !important;
             border: none;
             border-radius: 6px;
@@ -274,6 +278,15 @@
         // Show initial slide and update progress indicator
         showSlides();
         updateProgressIndicator();
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (event.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
     </script>
     
     <footer>
