@@ -10,7 +10,9 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
     <style>
+
         /* Hide scrollbar for all browsers */
         body {
         scrollbar-color: transparent; /* Firefox */
@@ -64,7 +66,7 @@
             margin-top: 0px; /* Adjust the margin-top as needed */
             color: #8a8a8a; /* Text color */
             font-family: "Pragati Narrow", sans-serif;
-            font-size: 14px; /* Font size */
+            font-size: 12px; /* Font size */
         }
 
         .portfolio-images img {
@@ -88,7 +90,7 @@
         footer {
             margin-top: auto; /* Push footer to the bottom */
             margin-bottom: 0px;
-            background-color: #94474700;
+            background-color: #bb5b5b00;
             color: #43434349;
             font-family: "Pragati Narrow", sans-serif;
             font-size: 11px;
@@ -119,15 +121,13 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 34px;
-            color: #848484b7;
-            background-color: rgba(255, 255, 255, 0);
-            border: none;
-            border-radius: 6px;
+            font-size: 40px;
+            color: #84848425;
+            background-color: transparent !important;
+            border: none !important;
             cursor: pointer;
             padding: 45px;
-            z-index: 1;
-            transition: background-color 0.5s ease;
+            z-index: 2;
             user-select: none; /* Disable text(arrow) selection */
         }
         
@@ -139,8 +139,10 @@
             right: 20px;
         }
         
+
+
         .carousel-btn:hover {
-            background-color: rgba(200, 199, 199, 0.032);
+            background-color: rgba(200, 199, 199, 0.516);
         }    
         .progress-indicator {
             margin-top: 10px;
@@ -176,15 +178,14 @@
     <!-- Navigation menu -->
     <nav>
         <a href="index.html">HOME</a>
-        <a href="works.html">WORKS</a>
         <a href="about.html">ABOUT</a>
     </nav>
 
     <div class="container">
         <!-- Overlay div to disable interactions -->
-        <div class="logo-overlay"></div>
+        <!--<div class="logo-overlay"></div>-->
         <!-- Logo image -->
-        <img class="logo" src="images/works-logo.svg" alt="Logo">
+        <!--<img class="logo" src="#" alt="Logo">-->
     </div>
 
     <!-- Description section -->
@@ -211,23 +212,7 @@
 
     <!-- JavaScript to disable right-clicking and dragging -->
     <script>
-        // Get the logo overlay
-        const logoOverlay = document.querySelector('.logo-overlay');
-        const logo = document.querySelector('.logo');
 
-        // Prevent right-click on logo and logo overlay
-        logo.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        logoOverlay.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        // Disable dragging on logo image
-        logo.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-        });
 
         // Image Carousel JavaScript
         let slideIndex = 0;
