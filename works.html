@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Works</title>
@@ -12,10 +13,10 @@
     <style>
         /* Hide scrollbar for all browsers */
         body {
-        scrollbar-color: transparent; /* Firefox */
+            scrollbar-color: transparent; /* Firefox */
         }
         body::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, and Opera */
+            display: none; /* Chrome, Safari, and Opera */
         }
 
         body {
@@ -30,7 +31,7 @@
         }
         .container {
             max-width: 600px;
-            margin:15px auto; /* Adjust the margin to center the container vertically */
+            margin: 15px auto; /* Adjust the margin to center the container vertically */
             background-color: rgba(255, 255, 255, 0);
             padding: 10px;
             border-radius: 0px;
@@ -77,11 +78,11 @@
             pointer-events: none; /* Disable pointer events on the element and its children */
         }
         .no-drag {
-        user-select: none; /* Disable text selection */
-        -moz-user-select: none;
-        -webkit-user-drag: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
+            user-select: none; /* Disable text selection */
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
 
         footer {
@@ -98,18 +99,26 @@
         .carousel-container {
             position: relative;
             margin-top: 30px;
-            overflow-x: auto; /* Enable horizontal scrolling */
-            white-space: nowrap; /* Prevent images from wrapping */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-y: visible; /* Allow vertical scrolling */
+            touch-action: pan-y; /* Enable vertical swipe on touch devices */
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease;
+            touch-action: pan-x; /* Enable horizontal swipe on touch devices */
             -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
         }
-        
+
         .carousel img {
             max-width: 100%;
             height: auto;
             border-radius: 3px;
-            margin-right: 10px; /* Add space between images */
         }
-        
+
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -124,24 +133,25 @@
             z-index: 1;
             user-select: none; /* Disable text(arrow) selection */
         }
-        
+
         .prev-btn {
             left: 10px;
         }
-        
+
         .next-btn {
             right: 10px;
         }
-        
+
         .carousel-btn:hover {
             background-color: rgb(255, 255, 255);
-        }    
+        }
+
         .progress-indicator {
             margin-top: 10px;
             margin-bottom: 90px;
             color: #6e6e6eba; /* Text color */
             font-family: "Pragati Narrow", sans-serif;
-            font-size: 16px;        
+            font-size: 16px;
         }
 
         /* Navigation menu styles */
@@ -186,19 +196,14 @@
 
     <!-- Image Carousel -->
     <div class="carousel-container">
-        <div class="carousel">
-            <!-- Carousel Images -->
+        <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
+        <div class="carousel" id="imageCarousel">
             <img src="images/image1.jpg" alt="Image 1" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
             <img src="images/image2.jpg" alt="Image 2" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
             <img src="images/image3.jpg" alt="Image 3" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
             <img src="images/image4.jpg" alt="Image 4" onclick="openModal('images/image1.jpg')" class="no-right-click no-drag">
             <!-- Add more carousel images as needed -->
         </div>
-
-        <!-- Previous Button -->
-        <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
-
-        <!-- Next Button -->
         <div class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</div>
     </div>
 
@@ -210,6 +215,8 @@
     <script>
         // Image Carousel JavaScript
         let slideIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         function showSlides() {
             const slides = document.querySelectorAll('.carousel img');
@@ -242,6 +249,26 @@
             const progressIndicator = document.getElementById('progressIndicator');
             const currentSlide = slideIndex + 1; // Get current slide number
             progressIndicator.textContent = `${currentSlide}/${slides.length}`; // Update progress text
+        }
+
+        // Handle touch events for swipe gesture
+        document.getElementById('imageCarousel').addEventListener('touchstart', function(event) {
+            touchStartX = event.changedTouches[0].clientX;
+        });
+
+        document.getElementById('imageCarousel').addEventListener('touchend', function(event) {
+            touchEndX = event.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        // Handle swipe gesture
+        function handleSwipe() {
+            const touchDiff = touchEndX - touchStartX;
+            if (touchDiff > 50) {
+                prevSlide(); // Swipe right
+            } else if (touchDiff < -50) {
+                nextSlide(); // Swipe left
+            }
         }
 
         // Show initial slide and update progress indicator
