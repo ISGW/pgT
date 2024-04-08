@@ -9,7 +9,6 @@
     <title>some art</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
     <style>
         /* Hide scrollbar for all browsers */
         body {
@@ -30,10 +29,10 @@
             min-height: 100vh;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin:15px auto; /* Adjust the margin to center the container vertically */
             background-color: rgba(255, 255, 255, 0);
-            padding: 10px;
+            padding: 35px;
             border-radius: 0px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
             position: relative; /* Required for absolute positioning of logo overlay */
@@ -50,7 +49,7 @@
         }
 
         .logo {
-            max-width: 70px;
+            max-width: 35px;
             margin: 0 auto; /* Center the logo horizontally */
             /* Add other styles as needed */
         }
@@ -58,8 +57,8 @@
         .social-icons a {
             display: inline-block;
             margin: 0 10px;
-            margin-top: 450px;
-            margin-bottom: 50px;
+            margin-top: 300px;
+            margin-bottom: 80px;
         }
             .social-icons a:hover {
             color: blue; /* Hover color */
@@ -76,10 +75,11 @@
         }
 
         .description {
-            margin-top: 0px; /* Adjust the margin-top as needed */
-            color: #ffffff; /* Text color */
+            margin-top: 80px; /* Adjust the margin-top as needed */
+            color: #cfd1d2; /* Text color */
             font-family: "Pragati Narrow", sans-serif;
-            font-size: 14px; /* Font size */
+            font-style: italic;
+            font-size: 12px; /* Font size */
         }
 
         .no-right-click,
@@ -95,13 +95,17 @@
         }
 
         footer {
-            margin-top: auto; /* Push footer to the bottom */
-            margin-bottom: 0px;
-            background-color: #ffffff00;
-            color: #cfd1d249;
+            position: auto;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #bb5b5b00;
+            color: #e40b0bc1;
             font-family: "Pragati Narrow", sans-serif;
             font-size: 11px;
-            padding: 1px;
+            padding: 0px;
+            z-index: 100; /* Ensure the footer appears above other content */
+
         }
 
         /* Navigation menu styles */
@@ -111,101 +115,32 @@
             margin-top: 20px;
         }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav li {
-            margin: 0 20px;
-        }
-
         nav a {
+            margin: 0 20px;
             color: #cfd1d2;
             text-decoration: none;
             font-family: "Pragati Narrow", sans-serif;
             font-weight: 400;
             font-size: 14px;
-            transition: color 0.6s ease;
-            border-radius: 5px;
-            
+            transition: color 0.5s ease;
         }
 
         nav a:hover {
-            color: #18342f;
+            color: #ffffff;
         }
-
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position:absolute;
-            background-color: #6c857f;
-            border-radius: 5px;
-            min-width: 100px;
-            z-index: 1;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .dropdown-content a {
-            color: #18342f;
-            padding: 25px 16px;
-            text-decoration: none;
-            display:block;
-            transition: background-color 0.5s ease;
-            
-        }
-
-        .dropdown-content a:hover {
-            background-color: #cfd1d2;
-            border-radius: 5px;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display:block;
-        }
-
-        /* SVG icon styles */
-        .icon {
-            fill: #cfd1d2;
-            transition: fill 0.5s ease;
-        }
-
-        .icon:hover {
-            fill: #ffffff;
-        }
-
-        
     </style>
 </head>
 <body>
     <!-- Navigation menu -->
     <nav>
-        <ul>
-            <li class="dropdown">
-                <a href="javascript:void(0)">
-                    <!-- SVG icon -->
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-                        <path d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"/>
-                    </svg>
-                </a>
-                <div class="dropdown-content">
-                    <a href="works.html">WORKS</a>
-                    <a href="about.html">ABOUT</a>
-                    <a href="about.html">X</a>
-                </div>
-            </li>
-            
-        </ul>
+        <a href="works.html">WORKS</a>
     </nav>
 
     <div class="container">
         <!-- Overlay div to disable interactions -->
         <div class="logo-overlay"></div>
         <!-- Logo image -->
-        <img class="logo" src="images/3logo.svg" alt="Logo">
+        <img class="logo" src="images/4logo.svg" alt="Logo">
     </div>
 
     <!-- Description section -->
@@ -240,13 +175,6 @@
         logo.addEventListener('dragstart', function(e) {
             e.preventDefault();
         });
-
-    // Close the dropdown when clicking anywhere outside of it
-    document.addEventListener('click', function(e) {
-        if (!dropdown.contains(e.target) && !document.querySelector('.dropdown').contains(e.target)) {
-            dropdown.style.display = 'none';
-        }
-    });
 
     </script>
     
