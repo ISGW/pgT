@@ -95,16 +95,15 @@
             font-family: "Pragati Narrow", sans-serif;
             font-size: 11px;
             padding: 0px;
-            z-index: 100; /* Ensure the footer appears above other content */
-
         }
 
-        /* Carousel styles */
+/* Carousel styles */
         .carousel-container {
-            width: 400px; /* Fixed width */
-            height: 500px; /* Fixed height */
+            width: 600px; /* Fixed width */
+            height: 800px; /* Fixed height */
             overflow: hidden;
-            border: 1px solid #ff0000;
+            border: 1px solid #ed0303fe;
+            border-radius: 6px;
             display: flex;
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
@@ -121,15 +120,13 @@
     }
 }
 
-@media (max-width: 480px) {
+        @media (max-width: 480px) {
     /* Adjust dimensions for mobile devices */
     .carousel-container {
         width: 90vw; /* 90% of the viewport width */
         height: calc(90vw * 5 / 4); /* Maintain 4:5 aspect ratio */
     }
 }
-
-
         .carousel {
             display: flex;
             justify-content: center;
@@ -141,12 +138,13 @@
         .carousel img {
             max-width: 100%;
             height: auto;
-            border-radius: 3px;
+            border-radius: 6px;
         }
 
         .carousel-btn {
             position: absolute;
             top: 50%;
+            height: 200px; /*button lenght*/
             transform: translateY(-50%);
             font-size: 25px;
             color: #7f7f7f2c;
@@ -160,23 +158,19 @@
         }
 
         .prev-btn {
-            left: 10px;
+            left: 5px;
         }
 
         .next-btn {
-            right: 10px;
-        }
-
-        .carousel-btn:hover {
-            background-color: rgb(255, 255, 255);
+            right: 5px;
         }
 
         .progress-indicator {
-            margin-top: 10px;
-            margin-bottom: 90px;
+            margin-top: 0px;
+            margin-bottom: 50px;
             color: #6e6e6eba; /* Text color */
             font-family: "Pragati Narrow", sans-serif;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         /* Navigation menu styles */
@@ -188,7 +182,7 @@
 
         nav a {
             margin: 0 20px;
-            color: #737373;
+            color: #888888;
             text-decoration: none;
             font-family: "Pragati Narrow", sans-serif;
             font-weight: 600;
@@ -317,7 +311,7 @@
     </script>
     
     <footer>
-        <p>&copy; 2024</p>
+        <p>&copy; 2024 Isaac Santillan</p>
     </footer>
 
 </body>
