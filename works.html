@@ -101,12 +101,15 @@
 
         /* Carousel styles */
         .carousel-container {
-            position: relative;
-            justify-content: center;
-            align-items: center;
-            display: flex;
-            border: 1px solid #df0404;
+            width: 400px; /* Fixed width */
+            height: 500px; /* Fixed height */
             overflow: hidden;
+            border: 1px solid #ff0000;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            position: relative; /* Required for absolute positioning of buttons */
+            margin: 0 auto; /* Add this line to center the container horizontally */
             touch-action: pan-y; /* Enable vertical swipe on touch devices */
         }
 
@@ -114,8 +117,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 400px; /* Fixed width */
-            height: 500px; /* Fixed height */
             touch-action: pan-x; /* Enable horizontal swipe on touch devices */
             -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
         }
@@ -299,7 +300,7 @@
     </script>
     
     <footer>
-        <p>&copy; 2024 Isaac Santillan</p>
+        <p>&copy; 2024</p>
     </footer>
 
 </body>
