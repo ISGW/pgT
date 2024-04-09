@@ -102,9 +102,11 @@
         /* Carousel styles */
         .carousel-container {
             position: relative;
-            margin-top: 30px;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            overflow-y: visible; /* Allow vertical scrolling */
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            border: 1px solid #df0404;
+            overflow: hidden;
             touch-action: pan-y; /* Enable vertical swipe on touch devices */
         }
 
@@ -112,7 +114,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.5s ease;
+            width: 400px; /* Fixed width */
+            height: 500px; /* Fixed height */
             touch-action: pan-x; /* Enable horizontal swipe on touch devices */
             -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
         }
