@@ -113,6 +113,23 @@
             touch-action: pan-y; /* Enable vertical swipe on touch devices */
         }
 
+        @media (max-width: 768px) {
+    /* Adjust dimensions for tablets */
+    .carousel-container {
+        width: 80vw; /* 80% of the viewport width */
+        height: calc(80vw * 5 / 4); /* Maintain 4:5 aspect ratio */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust dimensions for mobile devices */
+    .carousel-container {
+        width: 90vw; /* 90% of the viewport width */
+        height: calc(90vw * 5 / 4); /* Maintain 4:5 aspect ratio */
+    }
+}
+
+
         .carousel {
             display: flex;
             justify-content: center;
