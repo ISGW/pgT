@@ -9,6 +9,7 @@
     <title>Santillan Art</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
         /* Hide scrollbar for all browsers */
         body {
@@ -82,11 +83,20 @@
         }
 
         .description {
-            margin-top: 70px; /* Adjust the margin-top as needed */
-            color: #cfd1d2; /* Text color */
+            margin-top: 10px; /* Adjust the margin-top as needed */
+            color: #6c857f; /* Text color */
             font-family: "Pragati Narrow", sans-serif;
             font-style: italic;
-            font-size: 13px; /* Font size */
+            font-size: 11px; /* Font size */
+        }
+    
+        .description-body {
+            margin-top: 70px; /* Adjust the margin-top as needed */
+            color: #ffffff; /* Text color */
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 11px; /* Font size */
+            font-weight: 100;
+            letter-spacing: 0.22rem;
         }
 
         .no-right-click,
@@ -135,13 +145,76 @@
         nav a:hover {
             color: #ffffff;
         }
+
+/* Galley button */
+.draw-border {
+  box-shadow: inset 0 0 0 1.8px #6c857f;
+  color: #cfd1d2;
+  transition: color 0.2s 0.0833333333s;
+  position: relative;
+  text-decoration: none;
+}
+.draw-border::before, 
+.draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+}
+.draw-border::after {
+  border-top-width: 3px;
+  border-right-width: 3px;
+}
+.draw-border:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.draw-border:hover::before, 
+.draw-border:hover::after {
+  border-color: #cfd1d2;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;  
+  font-size: 11px; /* Font size */
+  padding: .6em 1.5em;
+  letter-spacing: 0.05rem;
+}
+.btn:focus {
+  outline: 2px solid #6c857f;
+}
     </style>
 </head>
+
+
 <body>
-    <!-- Navigation menu -->
-    <nav>
-        <a href="works.html">WORKS</a>
-    </nav>
+<!-- Navigation menu -->
+        <!-- <nav>
+        <a href="works.html">MENU</a>
+         </nav> -->
 
     <div class="container">
         <!-- Overlay div to disable interactions -->
@@ -152,13 +225,19 @@
 
     <!-- Description section -->
     <div class="description">
-        <p>Drawings. Paintings. Work in progress.</p>
+        <p>Work in progress.</p>
     </div>
+
+    <div class="description-body">
+        <p>WELCOME</p>
+    </div>
+<br>
+<a href="works.html" class="btn draw-border" onclick="delayNavigation(event, 'works.html', 370)">Gallery</a>
 
     <!-- Social media icons -->
     <div class="social-icons">
-        <a href="mailto:isaac@santillan.art"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M19 4H5a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm0 2l-6.5 4.47a1 1 0 0 1-1 0L5 6z"/></svg></a>
-        <a href="https://www.instagram.com/santillan_i" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 0 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></a>
+        <a href="mailto:isaac@santillan.art"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="31.5" viewBox="0 0 16 16"><path d="M16.999,4.975L16.999,4.975C16.999,4.975,16.999,4.975,16.999,4.975c-0.419-0.4-0.979-0.654-1.604-0.654H4.606c-0.584,0-1.104,0.236-1.514,0.593C3.076,4.928,3.05,4.925,3.037,4.943C3.034,4.945,3.035,4.95,3.032,4.953C2.574,5.379,2.276,5.975,2.276,6.649v6.702c0,1.285,1.045,2.329,2.33,2.329h10.79c1.285,0,2.328-1.044,2.328-2.329V6.649C17.724,5.989,17.441,5.399,16.999,4.975z M15.396,5.356c0.098,0,0.183,0.035,0.273,0.055l-5.668,4.735L4.382,5.401c0.075-0.014,0.145-0.045,0.224-0.045H15.396z M16.688,13.351c0,0.712-0.581,1.294-1.293,1.294H4.606c-0.714,0-1.294-0.582-1.294-1.294V6.649c0-0.235,0.081-0.445,0.192-0.636l6.162,5.205c0.096,0.081,0.215,0.122,0.334,0.122c0.118,0,0.235-0.041,0.333-0.12l6.189-5.171c0.099,0.181,0.168,0.38,0.168,0.6V13.351z"/></svg></a>
+        <a href="https://www.instagram.com/santillan_i" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/></svg></a>
         <!--<a href="https://twitter.com" target="_blank"><img src="images/etsy.svg" alt="Twitter" style="width: 30px;"></a>-->
         <!-- Add more social media icons and links as needed -->
     </div>
@@ -183,8 +262,18 @@
             e.preventDefault();
         });
 
+
+
+        function delayNavigation(event, url, delayTime) {
+            event.preventDefault(); // Prevent default link behavior
+            setTimeout(function () {
+                window.location.href = url;
+            }, delayTime);
+        }
+
+
+
     </script>
-    
     <footer>
         <p></p>
     </footer>
