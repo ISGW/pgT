@@ -5,18 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
     <title>Works</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
-        /* Hide scrollbar for all browsers */
-        body {
-            scrollbar-color: transparent; /* Firefox */
-        }
-
-
         body {
             margin: 0;
             padding: 0;
@@ -31,7 +25,7 @@
             max-width: 600px;
             margin: 15px auto; /* Adjust the margin to center the container vertically */
             background-color: rgba(255, 255, 255, 0);
-            padding: 10px;
+            padding: .5px;
             border-radius: 0px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
             position: relative; /* Required for absolute positioning of logo overlay */
@@ -53,16 +47,24 @@
             /* Add other styles as needed */
         }
 
+        .permanent-description {
+            position: relative;
+            background-color: #f0141400;
+            padding: 0px;
+            margin-top: 25px;
+            margin-bottom: 0px; /* Adjust as needed */
+            font-family: "Noto Sans JP", sans-serif;
+            font-weight: 400;
+            font-size: 11px;
+            color: #414141;
+            text-align: center;
+            z-index: 3; /* Ensure it's above the carousel */
+        }
+
         .social-icons a {
             display: inline-block;
             margin: 0 10px;
             margin-top: 150px;
-        }
-        .description {
-            margin-top: 0px; /* Adjust the margin-top as needed */
-            color: #8a8a8a; /* Text color */
-            font-family: "Pragati Narrow", sans-serif;
-            font-size: 12px; /* Font size */
         }
 
         .portfolio-images img {
@@ -71,6 +73,7 @@
             border-radius: 0px; /* Optional: Add border radius for rounded corners */
             transition: transform 0.3s ease; /* Smooth transition on hover */
         }
+
         .no-right-click,
         .no-right-click img {
             pointer-events: none; /* Disable pointer events on the element and its children */
@@ -88,12 +91,12 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: #bb5b5b00;
-            color: #6d6d6d4c;
+            background-color: #cfd1d2;
+            color: #86878975;
             font-family: "Pragati Narrow", sans-serif;
             font-size: 10px;
             padding: 0px;
-            z-index: 1; /* Set a lower z-index value for the footer */
+            z-index: -1; /* Set a lower z-index value for the footer */
         }
 
 /* Carousel styles */
@@ -101,13 +104,15 @@
             width: 600px; /* Fixed width */
             height: 800px; /* Fixed height */
             overflow: hidden;
-            border: 1px solid #9f4a4a00;
+            border: 1px solid #f10c0c00;
+            background-color: #cfd1d2;
             border-radius: 10px;
             display: flex;
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
             position: relative; /* Required for absolute positioning of buttons */
             margin: 0 auto; /* Add this line to center the container horizontally */
+            margin-top: -15px;
             touch-action: pan-y; /* Enable vertical swipe on touch devices */
             z-index: 2;
         }
@@ -139,46 +144,66 @@
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+            opacity: 0; /* Initially hide images */
+            transition: transform 0.4s ease; /* Scale-up transition */
+            transform: scale(0.9); /* Initial scale-down effect */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0.9); /* Center and scale-down effect */
+        }
+
+        .carousel img.active {
+            opacity: 1; /* Show active image */
+            transform: scale(1.1); /* Scale-up effect */
+            transform: translate(-50%, -50%) scale(1); /* Center and scale-up effect */
+
         }
 
         .carousel-btn {
             position: absolute;
             top: 50%;
-            height: 500px; /*button lenght*/
+            height: 600px; /*button lenght*/
             transform: translateY(-50%);
             font-size: 25px;
-            color: #7f7f7f60;
+            color: #58585861;
             background-color: transparent !important;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            padding: 45px;
+            padding: 90px;
             z-index: 1;
             user-select: none; /* Disable text(arrow) selection */
-            line-height: 500px; /* Same as button height */
+            line-height: 600px; /* Same as button height */
             vertical-align: middle; /* Vertical alignment */
-
         }
 
         .prev-btn {
-            left: 5px;
+            left: 0px;
+            padding-left: 10px; /* Adjust left padding for the arrow */
+
         }
 
         .next-btn {
-            right: 5px;
+            right: 0px;
+            padding-right: 10px; /* Adjust right padding for the arrow */
         }
 
         .progress-indicator {
             margin-top: 0px;
             margin-bottom: 50px;
-            color: #6e6e6eba; /* Text color */
-            font-family: "Pragati Narrow", sans-serif;
-            font-size: 14px;
+            background-color: #cfd1d2;
+            color: #414141; /* Text color */
+            padding: .5%;
+            font-family: "Noto Sans JP", sans-serif;
+            font-weight: 300;
+            font-size: 11px;
         }
 
         /* Navigation menu styles */
         nav {
             display: flex;
+            background-color: #cfd1d2;
             justify-content: center;
             margin-top: 20px;
         }
@@ -186,23 +211,48 @@
         nav a {
             margin: 0 20px;
             color: #888888;
+            
             text-decoration: none;
             font-family: "Pragati Narrow", sans-serif;
-            font-weight: 600;
-            font-size: 14px;
+            font-weight: 400;
+            font-size: 15px;
             transition: color 0.5s ease;
         }
 
         nav a:hover {
             color: #18342f;
         }
+
+        /* Image Descriptions styles */
+        .image-descriptions {
+            margin-top: 0px; /* Adjust spacing from carousel */
+            text-align: center;
+        }
+
+        .description {
+            background-color: #cfd1d2;
+            color: #414141; /* Text color */
+            padding: 1px 10px;
+            font-family: "Noto Sans JP", sans-serif;
+            font-weight: 300;
+            font-size: 11px;
+            display: inline-block;
+            margin: 0 5px; /* Adjust spacing between descriptions */
+            border-radius: 5px;
+        }
+
     </style>
 </head>
 <body>
     <!-- Navigation menu -->
     <nav>
-        <a href="index.html">HOME</a>
+        <a href="index.html">Home</a>
     </nav>
+
+    <!-- Permanent description -->
+    <div class="permanent-description">
+        <p>Top Description Text</p>
+    </div>
 
     <div class="container">
         <!-- Overlay div to disable interactions -->
@@ -211,74 +261,65 @@
         <!--<img class="logo" src="#" alt="Logo">-->
     </div>
 
-    <!-- Description section -->
-    <div class="description">
-        <p></p>
-    </div>
-
     <!-- Image Carousel -->
     <div class="carousel-container">
         <div class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</div>
         <div class="carousel" id="imageCarousel">
-            <img src="images/image1.jpg" alt="Image 1" class="no-right-click no-drag">
-            <img src="images/image2.jpg" alt="Image 2" class="no-right-click no-drag">
-            <img src="images/image3.jpg" alt="Image 3" class="no-right-click no-drag">
-            <img src="images/image4.jpg" alt="Image 4" class="no-right-click no-drag">
-        <!--<img src="images/image5.jpg" alt="Image 5" class="no-right-click no-drag">-->
-        <!--<img src="images/image6.jpg" alt="Image 6" class="no-right-click no-drag">-->
-        <!--<img src="images/image7.jpg" alt="Image 7" class="no-right-click no-drag">-->
-        <!--<img src="images/image8.jpg" alt="Image 8" class="no-right-click no-drag">-->
-        <!--<img src="images/image9.jpg" alt="Image 9" class="no-right-click no-drag">-->
-        <!--<img src="images/image10.jpg" alt="Image 10" class="no-right-click no-drag">-->
+            <img src="images/image1.jpg" class="no-right-click no-drag active">
+            <img src="images/image2.jpg" class="no-right-click no-drag">
+            <img src="images/image3.jpg" class="no-right-click no-drag">
+            <img src="images/image4.jpg" class="no-right-click no-drag">
+            <img src="images/image5.jpg" class="no-right-click no-drag">
+            <img src="images/image6.jpg" class="no-right-click no-drag">
+
+
+            <!-- Add more carousel images as needed -->
 
         </div>
         <div class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</div>
     </div>
 
+    <!-- Image Descriptions -->
+    <div class="image-descriptions">
+    <!-- 1 --><div class="description" >First Image 1</div> 
+    <!-- 2 --><div class="description" >Description Image 2x</div>
+    <!-- 3 --><div class="description" >Apple. Oil on Canvas Panel 8x8in</div>
+    <!-- 4 --><div class="description" >text (4)</div>
+    <!-- 5 --><div class="description" >5 Description</div>
+    <!-- 6 --><div class="description" >6 Description</div>
+    
+        <!-- Add more descriptions as needed -->
+
+    </div>
+    
     <!-- Progress indicator -->
     <div class="progress-indicator" id="progressIndicator"></div>
 
 
     <!-- JavaScript to disable right-clicking and dragging -->
     <script>
-        // Image Carousel JavaScript
         let slideIndex = 0;
-        let touchStartX = 0;
-        let touchEndX = 0;
+        const slides = document.querySelectorAll('.carousel img');
 
-        function showSlides() {
-            const slides = document.querySelectorAll('.carousel img');
-            if (slideIndex >= slides.length) {
-                slideIndex = 0;
-            } else if (slideIndex < 0) {
-                slideIndex = slides.length - 1;
-            }
+        function showSlide(index) {
             slides.forEach(slide => {
-                slide.style.display = 'none';
+                slide.classList.remove('active');
             });
-            slides[slideIndex].style.display = 'block';
+            slides[index].classList.add('active');
         }
 
         function nextSlide() {
-            slideIndex++;
-            showSlides();
+            slideIndex = (slideIndex + 1) % slides.length;
+            showSlide(slideIndex);
             updateProgressIndicator();
         }
 
         function prevSlide() {
-            slideIndex--;
-            showSlides();
+            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+            showSlide(slideIndex);
             updateProgressIndicator();
         }
-
-        // Update progress indicator
-        function updateProgressIndicator() {
-            const slides = document.querySelectorAll('.carousel img');
-            const progressIndicator = document.getElementById('progressIndicator');
-            const currentSlide = slideIndex + 1; // Get current slide number
-            progressIndicator.textContent = `${currentSlide}/${slides.length}`; // Update progress text
-        }
-
+    
         // Handle touch events for swipe gesture
         document.getElementById('imageCarousel').addEventListener('touchstart', function(event) {
             touchStartX = event.changedTouches[0].clientX;
@@ -298,11 +339,8 @@
                 nextSlide(); // Swipe left
             }
         }
-
-        // Show initial slide and update progress indicator
-        showSlides();
-        updateProgressIndicator();
-
+        
+        //keyboard arrows
         document.addEventListener('keydown', function(event) {
             if (event.key === 'ArrowLeft') {
                 prevSlide();
@@ -310,11 +348,39 @@
                 nextSlide();
             }
         });
+       
+// Update image descriptions
+function updateImageDescription() {
+    const descriptions = document.querySelectorAll('.description');
+    const currentSlide = slideIndex; // Get current slide index (starting from 0)
+    
+// Hide all descriptions
+    descriptions.forEach(desc => {
+        desc.style.display = 'none';
+    });
 
+// Show the description corresponding to the current slide
+    descriptions[currentSlide].style.display = 'block';
+}
+
+// Update progress indicator
+function updateProgressIndicator() {
+    const slides = document.querySelectorAll('.carousel img');
+    const progressIndicator = document.getElementById('progressIndicator');
+    const currentSlide = slideIndex + 1; // Get current slide number
+    progressIndicator.textContent = `${currentSlide}/${slides.length}`; // Update progress text
+    updateImageDescription(); // Update image description
+}
+
+// Show initial slide, update progress indicator, and image description
+
+updateProgressIndicator();
+updateImageDescription(); // Add this line to hide other descriptions initially
+      
     </script>
     
     <footer>
-        <p>&copy; 2024 All Rights Reserved.</p>
+        <p>&copy; 2024</p>
     </footer>
 
 </body>
